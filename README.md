@@ -5,3 +5,5 @@ Check box buttons --> https://bootsnipp.com/snippets/featured/jquery-checkbox-bu
 
 Used Le Wagon minimal template --> https://github.com/lewagon/rails-templates
 
+
+ToDo: Need to fix second table issue

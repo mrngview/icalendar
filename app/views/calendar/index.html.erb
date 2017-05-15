@@ -1,4 +1,16 @@
-<div class="container">
+<!-- Simple form table -->
+<%= week_calendar number_of_weeks: 1 do |date| %>
+  <%= date %>
+<% end %>
+
+<br>
+
+<%= week_calendar number_of_weeks: 1 do |date| %>
+  <%= date+7 %>
+<% end %>
+
+<!-- Hand made table -->
+<!-- <div class="container">
   <div class="row">
     <div class="col-xs-12">
       <div class="table-responsive">
@@ -7,7 +19,7 @@
             <tr>
               <th></th>
               <th>#</th>
-              <th>Monday <%= Date.today %></th>
+              <th>Monday</th>
               <th>Thuesday</th>
               <th>Wednesday</th>
               <th>Thursday</th>
@@ -204,4 +216,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
