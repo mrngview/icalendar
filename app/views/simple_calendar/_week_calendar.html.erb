@@ -1,51 +1,45 @@
 <div class="simple-calendar">
 
 <!-- Weeks number and arrow for previous and next month-->
-<!-- <div class="calendar-heading">
+<div class="calendar-heading">
   <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
   <% if calendar.number_of_weeks == 1 %>
     <span class="calendar-title">Week <%= calendar.week_number %></span>
   <%else%>
-      <span class="calendar-title">Week <%= calendar.week_number %> - <%= calendar.end_week %></span>
+      <span class="calendar-title">Weeks <%= calendar.week_number %> and <%= calendar.end_week %></span>
   <%end%>
       <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
-</div> -->
+</div>
+<br>
 
-<!-- Only on week in this line. Week numbers are shown in the first column of the table -->
-<div class="calendar-heading">
+<!-- Only one week in this line. Week numbers are shown in the first column of the table -->
+<!-- <div class="calendar-heading">
   <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
     <span class="calendar-title">Weeks</span>
   <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
-</div>
+</div> -->
 
-<!-- FIRST TABLE -->
+<%= date_range.slice(0, 7) %> <br>
+<%= date_range.slice(7, 14) %> <br>
+<%= date_range.class %>
+
 <!-- Table headers -->
   <table class="table table-striped">
-    <thead>
-      <tr>
-        <th></th>
-        <th>#</th>
-        <% date_range.slice(0, 7).each do |day| %>
-          <th><%= t('date.abbr_day_names')[day.wday] %>
-            <%-# Date relative to the day -%>
-            <%-# equal sign removed in lign 19. Need to fix issue with date -%>
-
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &block) %>
-              <% else %>
-                <% block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
-
-            <%-# End of block -%>
-          </th>
-        <% end %>
-      </tr>
-    </thead>
-
     <tbody>
       <% date_range.each_slice(7) do |week| %>
+         <thead>
+            <tr>
+              <th></th>
+              <% date_range.slice(0, 7).each do |day| %>
+                <th><%= t('date.abbr_day_names')[day.wday] %>
+                  <%-# Date relative to the day -%>
+                    <%= block.call day, sorted_events.fetch(day, []) %>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
         <tr>
-        <td rowspan="2">Week <%= calendar.week_number %></td>
+        <!-- <td rowspan="2">Week <%= calendar.week_number %></td> -->
         <td>Morning</td>
           <% week.each do |day| %>
             <%-# Buttons -%>
