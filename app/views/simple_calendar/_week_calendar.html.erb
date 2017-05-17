@@ -19,10 +19,6 @@
   <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
 </div> -->
 
-<%= date_range.slice(0, 7) %> <br>
-<%= date_range.slice(7, 14) %> <br>
-<%= date_range.class %>
-
 <!-- Table headers -->
   <table class="table table-striped">
     <tbody>
@@ -30,7 +26,7 @@
          <thead>
             <tr>
               <th></th>
-              <% date_range.slice(0, 7).each do |day| %>
+              <% week.each do |day| %>
                 <th><%= t('date.abbr_day_names')[day.wday] %>
                   <%-# Date relative to the day -%>
                     <%= block.call day, sorted_events.fetch(day, []) %>
