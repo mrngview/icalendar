@@ -38,4 +38,5 @@ Used Le Wagon minimal template --> https://github.com/lewagon/rails-templates
 >> week
 => [Mon, 15 May 2017, Tue, 16 May 2017, Wed, 17 May 2017, Thu, 18 May 2017, Fri, 19 May 2017, Sat, 20 May 2017, Sun, 21 May 2017]
 
+
 ------------------------------------------------------------------------------------------------------------------
